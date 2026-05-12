@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GlamByAestelle</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:#fff7f5;
+  color:#444;
+  overflow-x:hidden;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  width:100%;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ffffffef;
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 15px rgba(0,0,0,0.04);
+}
+
+.logo{
+  font-size:30px;
+  font-weight:700;
+  color:#e79ca7;
+  letter-spacing:1px;
+}
+
+.navbar{
+  display:flex;
+  gap:35px;
+}
+
+.navbar a{
+  color:#555;
+  font-weight:500;
+  position:relative;
+  transition:0.3s;
+}
+
+.navbar a::after{
+  content:'';
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#e79ca7;
+  left:0;
+  bottom:-6px;
+  transition:0.3s;
+}
+
+.navbar a:hover::after{
+  width:100%;
+}
+
+.navbar a:hover{
+  color:#e79ca7;
+}
+
+.menu-btn{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  width:100%;
+  height:400px;
+
+  background:
+  linear-gradient(rgba(255,247,245,0.45), rgba(255,247,245,0.45)),
+  url('https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1800');
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  padding:20px;
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.hero-content h1{
+  font-size:55px;
+  margin-bottom:20px;
+  color:#333;
+}
+
+.hero-content p{
+  font-size:18px;
+  color:#555;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+.hero-btn{
+  padding:15px 35px;
+  border:none;
+  border-radius:50px;
+  background:#e79ca7;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:600;
+}
+
+.hero-btn:hover{
+  background:#d98090;
+  transform:translateY(-3px);
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.section-title p{
+  color:#777;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured{
+  padding:100px 8%;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+.feature-card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:0.4s;
+}
+
+.feature-card:hover{
+  transform:translateY(-10px);
+}
+
+.feature-card img{
+  height:350px;
+  object-fit:cover;
+}
+
+.feature-content{
+  padding:25px;
+}
+
+.feature-content h3{
+  margin-bottom:12px;
+  font-size:24px;
+}
+
+.feature-content p{
+  color:#666;
+  line-height:1.7;
+}
+
+/* =========================
+   BLOG
+========================= */
+
+.blog{
+  padding:100px 8%;
+  background:white;
+}
+
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+}
+
+.blog-card{
+  background:#fff7f5;
+  border-radius:25px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.blog-card:hover{
+  transform:translateY(-10px);
+}
+
+.blog-card img{
+  height:250px;
+  object-fit:cover;
+}
+
+.blog-content{
+  padding:28px;
+}
+
+.blog-content h3{
+  margin-bottom:15px;
+}
+
+.blog-content p{
+  color:#666;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.blog-content a{
+  color:#e79ca7;
+  font-weight:600;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter{
+  padding:100px 8%;
+}
+
+.newsletter-box{
+  background:#ffe6ea;
+  border-radius:30px;
+  padding:70px 30px;
+  text-align:center;
+}
+
+.newsletter-box h2{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.newsletter-box p{
+  color:#666;
+  margin-bottom:35px;
+}
+
+.newsletter form{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.newsletter input{
+  width:320px;
+  padding:16px 20px;
+  border:none;
+  border-radius:50px;
+  outline:none;
+  font-size:15px;
+}
+
+.newsletter button{
+  padding:16px 35px;
+  border:none;
+  border-radius:50px;
+  background:#e79ca7;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.newsletter button:hover{
+  background:#d98090;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  background:white;
+  padding:35px;
+  text-align:center;
+  border-top:1px solid #f2d7dc;
+}
+
+.footer p{
+  color:#777;
+}
+
+/* =========================
+   SCROLL BUTTON
+========================= */
+
+.scrollTop{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:#e79ca7;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .navbar{
+    position:absolute;
+    top:80px;
+    right:-100%;
+    width:260px;
+    background:white;
+    flex-direction:column;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:0.4s;
+  }
+
+  .navbar.active{
+    right:20px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-content h1{
+    font-size:40px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero{
+    height:500px;
+  }
+
+  .hero-content h1{
+    font-size:34px;
+  }
+
+  .section-title h2{
+    font-size:32px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="logo">GlamByAestelle</div>
+
+  <nav class="navbar">
+
+    <a href="#">Home</a>
+    <a href="#">Fashion</a>
+    <a href="#">Bags</a>
+    <a href="#">Watches</a>
+    <a href="#">Jewelry</a>
+    <a href="#">Contact</a>
+
+  </nav>
+
+  <div class="menu-btn" id="menuBtn">☰</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>Luxury Fashion & Elegant Accessories</h1>
+
+    <p>
+      Discover premium handbags, feminine watches, luxury earrings, and timeless fashion inspiration.
+    </p>
+
+    <button class="hero-btn">Explore Collection</button>
+
+  </div>
+
+</section>
+
+<!-- FEATURED -->
+
+<section class="featured">
+
+  <div class="section-title">
+
+    <h2>Featured Collections</h2>
+
+    <p>Elegant fashion pieces curated with a soft peachy luxury aesthetic.</p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <!-- BAG -->
+
+    <div class="feature-card">
+
+      <img src="https://images.pexels.com/photos/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=800">
+
+      <div class="feature-content">
+
+        <h3>Luxury Handbags</h3>
+
+        <p>
+          Sophisticated handbags crafted for modern feminine fashion.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- WOMEN WATCH -->
+
+    <div class="feature-card">
+
+      <img src="https://images.pexels.com/photos/10556485/pexels-photo-10556485.jpeg?auto=compress&cs=tinysrgb&w=1200">
+
+      <div class="feature-content">
+
+        <h3>Women's Watches</h3>
+
+        <p>
+          Elegant luxury watches designed with timeless beauty and style.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- EARRINGS -->
+
+    <div class="feature-card">
+
+      <img src="https://images.pexels.com/photos/7882737/pexels-photo-7882737.jpeg?auto=compress&cs=tinysrgb&w=1200">
+
+      <div class="feature-content">
+
+        <h3>Elegant Earrings</h3>
+
+        <p>
+          Delicate jewelry collections made for glamorous feminine looks.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BLOG -->
+
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+  <div class="newsletter-box">
+
+    <h2>Join Our Newsletter</h2>
+
+    <p>
+      Get weekly luxury fashion inspiration and beauty trends.
+    </p>
+
+    <!-- FIXED FORM ERROR -->
+
+    <form>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <button type="submit">Subscribe</button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <p>
+    © 2026 GlamByAestelle • Luxury Fashion & Accessories Blog
+  </p>
+
+</footer>
+
+<!-- SCROLL TOP -->
+
+<button class="scrollTop" id="scrollTop">↑</button>
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.querySelector(".navbar");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+/* SCROLL TOP */
+
+const scrollTopBtn = document.getElementById("scrollTop");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 300){
+    scrollTopBtn.style.display = "block";
+  } else{
+    scrollTopBtn.style.display = "none";
+  }
+
+});
+
+scrollTopBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+});
+
+</script>
+
+</body>
+</html>
